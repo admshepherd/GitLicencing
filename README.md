@@ -8,7 +8,7 @@ The angularjs seed project came configured to use the node package manager to do
 You can use these commands to do so:
 ```
 npm install
-...
+
 npm start
 ```
 
