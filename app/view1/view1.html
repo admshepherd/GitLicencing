@@ -1,1 +1,26 @@
-<p>This is the partial for view 1.</p>
+<h2>Check Git Organization Projects for licencing</h2>
+<div class="input-row">
+    <label for="user">User: <input id="user" type="text" ng-model="user"></label>
+</div>
+<div class="input-row">
+    <label for="password">Password: </label><input id="password" type="password" ng-model="password">
+</div>
+<div class="input-row">
+    <label for="organization">Git Organization: </label><input id="organization" type="text" ng-model= "organization">
+</div>
+<div class="input-row">
+    <button id="get-repos" ng-click="getOrganizationRepos(user, password, organization)">Get Organization Repositories</button>
+</div>
+
+<h4>Results</h4>
+<div id="repos-list">
+    <div>
+        <span class="repo-name">Repository Name</span>
+        <span class="has-license">Has Licence</span>
+    </div>
+    <div ng-repeat="repo in reposList">
+        <span class="repo-name">{{repo.name}}</span>
+        <span class="has-license">{{repo.license !== null}}</span>
+        <button ng-hide="repo.license !== null" ng-click="sendLicensePullRequest(repo)">Send Pull Request</button>
+    </div>
+</div>

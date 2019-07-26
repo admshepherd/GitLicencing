@@ -9,6 +9,19 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['$scope', 'gitService', function($scope, gitService) {
+        $scope.reposList = [];
 
+        $scope.getOrganizationRepos = function(user, password, organization) {
+            var projectsPromise = gitService.getOrganizationRepos(user, password, organization);
+            projectsPromise.then(function(repos) {
+                $scope.reposList = repos;
+            }, function(data) {
+                $scope.reposList.push({name: "call failed, status: "+data.status + " " + data.statusText});
+            });
+        }
+
+        $scope.sendLicensePullRequest = function(project) {
+
+        }
 }]);

@@ -23,3 +23,16 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+.input-row {
+    margin: .5em;
+}
+
+.repo-name {
+    display: inline-block;
+    width: 25em;
+}
+.has-license {
+    display: inline-block;
+    width: 10em;
+}
